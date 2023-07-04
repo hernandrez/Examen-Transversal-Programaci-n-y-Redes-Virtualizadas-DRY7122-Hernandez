@@ -18,8 +18,10 @@ while True:
     if json_status == 0:
         distance_km = round(json_data["route"]["distance"] * 1.61, 2)
         duration = json_data["route"]["formattedTime"]
-        print("La distancia entre ciudades esde: {:.1f}".format(distance_km),"km")
-        print("La duracion del viaje es de: " + duration,"hrs\n")
+        combustible = round((json_data["route"]["distance"] * 1.61) / 10)
+        print("La distancia entre ciudades es de: {:.1f}".format(distance_km),"Km")
+        print("La duracion del viaje es de: " + duration,"Hrs")
+        print("El combustible utilizado es: {:.1f}".format(combustible),"Ltrs\n")
         print("=============================================\n")
         print("Indicaciones de como llegar:\n")
         for each in json_data["route"]["legs"][0]["maneuvers"]:
